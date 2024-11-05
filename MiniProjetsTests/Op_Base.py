@@ -17,3 +17,4 @@ try:
     print(calc(10, 0, "division"))
 except ValueError as e:
     print(e)
+    raise
