@@ -1,5 +1,6 @@
 import cowsay
-
+from bofhexcuse import bofh_excuse
+print(bofh_excuse()[0])
 def calc(a, b, op):
     if op == "addition":
         return a + b
