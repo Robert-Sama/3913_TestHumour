@@ -1,5 +1,5 @@
 import traceback
-import lolpython
+import MiniProjetsTests.lolpython as lolpython
 import cowsay
 
 def main():
