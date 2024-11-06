@@ -1,3 +1,5 @@
+import cowsay
+
 def calc(a, b, op):
     if op == "addition":
         return a + b
@@ -7,10 +9,12 @@ def calc(a, b, op):
         return a * b
     elif op == "division":
         if b == 0:
-            raise ValueError("Erreur : Division par zéro.")
+            cowsay.cow("Erreur : Division par zéro.")
+            return None  # retourne None pour indiquer une division impossible
         return a / b
     else:
-        raise ValueError("Opération non reconnue.")
+        cowsay.cow("Opération non reconnue.")
+        return None
 
 # Exemple d'utilisation
 try:

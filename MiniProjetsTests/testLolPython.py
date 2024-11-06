@@ -1,5 +1,6 @@
 import traceback
 import lolpython
+import cowsay
 
 def main():
     try:
@@ -7,7 +8,7 @@ def main():
         x = 1 / 0  # Erreur intentionnelle
     except Exception as e:
         # Utiliser lolpython pour reformuler le message d'erreur
-        with lolpython.print_both():
+        with lolpython:
             print("Oh non, une erreur hilarante est survenue :")
             traceback.print_exc()
 
