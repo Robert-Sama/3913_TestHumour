@@ -90,13 +90,13 @@ def t_ASSIGN(t):  # cannot be a simple pattern because it must
 def t_SINGLE_QUOTE_STRING(t):
     r"'([^\\']+|\\'|\\\\)*'"  # I think this is right ...
     t.type = "STRING"
-    t.value = t.value[1:-1].decode("string-escape")
+    t.value = bytes(t.value[1:-1], "utf-8").decode("unicode_escape")
     return t
 
 def t_DOUBLE_QUOTE_STRING(t):
     r'"([^\\"]+|\\"|\\\\)*"'
     t.type = "STRING"
-    t.value = t.value[1:-1].decode("string-escape")
+    t.value = bytes(t.value[1:-1], "utf-8").decode("unicode_escape")
     return t
 
 # and LOL quoted strings!  They end with /LOL
@@ -411,7 +411,7 @@ def t_newline(t):
 
 def t_error(t):
     print(f"Erreur de tokenisation : symbole inconnu {t.value[0]} à la position {t.lexpos}")
-    raise SyntaxError("Unknown symbol %r" % (t.value[0],))
+    #raise SyntaxError("Unknown symbol %r" % (t.value[0],))
     print("Skipping", repr(t.value[0]))
     t.lexer.skip(1)
 
